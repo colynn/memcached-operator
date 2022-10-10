@@ -1,0 +1,5 @@
+{
+    "go.gopath": "~/Documents/gopath1.18",
+    "go.useLanguageServer": true,
+    "go.goroot": "/usr/local/go1.18"
+}

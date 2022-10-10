@@ -18,11 +18,14 @@ package controllers
 
 import (
 	"context"
+	"time"
 
+	appsv1 "k8s.io/api/apps/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
+	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
 	cachev1alpha1 "github.com/colynn/memcached-operator/api/v1alpha1"
 )
@@ -47,16 +50,26 @@ type MemcachedReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.12.1/pkg/reconcile
 func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
+	rr := reconcile.Result{
+		RequeueAfter: time.Second * 5,
+	}
+
 	_ = log.FromContext(ctx)
 
 	// TODO(user): your logic here
-
-	return ctrl.Result{}, nil
+	memcached := &cachev1alpha1.Memcached{}
+	err := r.Get(ctx, req.NamespacedName, memcached)
+	if err != nil {
+		ctrl.Log.Error(err, err.Error())
+		return rr, nil
+	}
+	return rr, nil
 }
 
 // SetupWithManager sets up the controller with the Manager.
 func (r *MemcachedReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&cachev1alpha1.Memcached{}).
+		Owns(&appsv1.Deployment{}).
 		Complete(r)
 }
