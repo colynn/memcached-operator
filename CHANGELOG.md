@@ -1,6 +1,13 @@
 # ChangeLog
 
-## webhook
+## 2.0 Admission webhook
+
+> tag: [v0.0.4](https://github.com/colynn/memcached-operator/releases/tag/v0.0.4)
+
+make validating admission webhook have real meaning.
+
+1. 修改`api/v1alpha1/memcached_webhook.go`
+2. 参照1.2中的第5,6操作，重新编译镜像，再次部署更新`memcached-operator`的版本
 
 > tag: [v0.0.3](https://github.com/colynn/memcached-operator/releases/tag/v0.0.3)
 
@@ -16,7 +23,7 @@ make manifests
 
 1. [Admission Webhooks](https://sdk.operatorframework.io/docs/building-operators/golang/webhook/)
 
-## frist real world
+## 1.2 frist real world
 
 > tag: [v0.0.2](https://github.com/colynn/memcached-operator/releases/tag/v0.0.2)
 
@@ -137,7 +144,7 @@ kubectl delete -f config/samples/cache_v1alpha1_memcached.yaml
 make undeploy
 ```
 
-## init commit
+## 1.0 init commit
 
 > tag: [v0.0.1](https://github.com/colynn/memcached-operator/releases/tag/v0.0.1)
 
