@@ -2,7 +2,7 @@
 
 ## webhook
 
-> tag: v0.0.3
+> tag: [v0.0.3](https://github.com/colynn/memcached-operator/releases/tag/v0.0.3)
 
 ```sh
 # Create Validation Webhook
@@ -18,7 +18,7 @@ make manifests
 
 ## frist real world
 
-> tag: v0.0.2
+> tag: [v0.0.2](https://github.com/colynn/memcached-operator/releases/tag/v0.0.2)
 
 make memcached deployment running
 
@@ -139,7 +139,7 @@ make undeploy
 
 ## init commit
 
-> tag: v0.0.1
+> tag: [v0.0.1](https://github.com/colynn/memcached-operator/releases/tag/v0.0.1)
 
 ```sh
 # iniitialize the project
