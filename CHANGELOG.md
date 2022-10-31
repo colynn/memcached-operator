@@ -7,7 +7,9 @@
 make validating admission webhook have real meaning.
 
 1. 修改`api/v1alpha1/memcached_webhook.go`
-2. 参照 __1.1__ 中的第5,6操作，重新编译镜像，再次部署更新`memcached-operator`的版本
+2. uncomment WEBHOOK/CERTMANAGER yaml (`config/crd/kustomization.yaml`, `config/default/kustomization.yaml`)
+3. install [cert-manager](https://cert-manager.io/docs/installation/)
+4. 参照 __1.1__ 中的第5,6操作，重新编译镜像，再次部署更新`memcached-operator`的版本
 
 > tag: [v0.0.3](https://github.com/colynn/memcached-operator/releases/tag/v0.0.3)
 
