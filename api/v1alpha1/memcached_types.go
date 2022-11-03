@@ -41,9 +41,6 @@ type MemcachedStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Nodes are the names of the memcached pods
-	Nodes []string `json:"nodes"`
-
 	// Represents the observations of a Memcached's current state.
 	// Memcached.status.conditions.type are: "Available", "Progressing", and "Degraded"
 	// Memcached.status.conditions.status are one of True, False, Unknown.
@@ -51,11 +48,15 @@ type MemcachedStatus struct {
 	// condition types may define expected values and meanings for this field, and whether the values
 	// are considered a guaranteed API.
 	// Memcached.status.conditions.Message is a human readable message indicating details about the transition.
+
+	// Conditions store the status conditions of the Memcached instances
+	// +operator-sdk:csv:customresourcedefinitions:type=status
 	Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
 }
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
+// +operator-sdk:csv:customresourcedefinitions:resources={{Deployment,v1,memcached-deployment}}
 
 // Memcached is the Schema for the memcacheds API
 type Memcached struct {

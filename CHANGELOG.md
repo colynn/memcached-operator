@@ -1,5 +1,7 @@
 # ChangeLog
 
+## 3.0 CR status conditions
+
 ## 2.0 Admission webhook
 
 > tag: [v0.0.4](https://github.com/colynn/memcached-operator/releases/tag/v0.0.4)
@@ -72,7 +74,7 @@ make memcached deployment running
     - 添加`size`定义
 
 ```sh
-    kubectl apply -f config/samples/cache_v1alpha1_mecached.yaml
+    kubectl apply -f config/samples/cache_v1alpha1_memcached.yaml
 ```
 
 __Finally__, 你将会在对应的kubernetes环境中看到如下的运行状态:
